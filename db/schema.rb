@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180526181638) do
     t.float "sum"
     t.integer "term"
     t.float "interest"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,6 +5,7 @@ class CreateLoans < ActiveRecord::Migration[5.1]
       t.float :sum
       t.integer :term
       t.float :interest
+      t.integer :user_id
       t.timestamps
     end
   end
