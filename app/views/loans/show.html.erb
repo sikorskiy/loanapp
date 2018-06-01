@@ -1,0 +1,9 @@
+<h1><%= @loan.giver%></h1>
+<p>Sum: <%= " " + @loan.sum.to_s %></p>
+<p>Term: <%= " " + @loan.term.to_s + " days" %></p>
+<p>Interest: <%= " " + (@loan.interest*100).to_s + "%" %></p>
+<p>Created at: <%= " " + @loan.created_at.to_s %> </p>
+<br>
+<%= link_to "Удалить займ", loan_path(@loan), method: :delete, data: {confirm: "Are you sure?"} %>
+<br>
+<%= link_to "Список всех займов", loans_path %>

@@ -1,0 +1,29 @@
+<h1>Список пользователей</h1>
+
+<p>
+<%= link_to "Сортировать по имени", users_path(sorting: "name") %>
+</p>
+<table>
+	<tr >
+		<th> ID </th>
+		<th> Заемщик </th>
+		<th> Сумма </th>
+		<th> Срок </th>
+		<th> Процент </th>
+		<th> Редактирование </th>
+	</tr>
+<% @loans.each do |loan| %>
+	<tr >
+		<td> <%= link_to loan[:id], loan_path(loan[:id]) %> </td>
+		<td> <%= loan[:giver] %> </td>
+		<td> <%= loan[:sum] %> </td>
+		<td> <%= loan[:term] %> </td>
+		<td> <%= loan[:interest] %> </td>
+		<td> <%= link_to "Редактировать", edit_loan_path(loan[:id]) %> </td>
+	</tr>
+<% end %>	
+</table>
+<br>
+<%= will_paginate @loans %>
+
+<p><%= link_to "Создать новый займ", new_loan_path %> </p>

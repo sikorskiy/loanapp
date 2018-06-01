@@ -1,0 +1,8 @@
+<h2>Создание нового пользователя</h2>
+<%= form_for @loan do |f| %>
+<%= render partial: "form", locals: {f: f} %>
+<p class="form_info">
+<%= f.submit "Создать новый долг" %>
+</p>
+<% end %>
+ 

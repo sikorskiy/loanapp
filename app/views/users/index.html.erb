@@ -1,0 +1,25 @@
+<h1>Список пользователей</h1>
+<p>
+<%= link_to "Сортировать по имени", users_path(sorting: "name DESC") %>
+</p>
+
+<table>
+	<tr >
+		<th> ID </th>
+		<th> Имя ↓</th>
+		<th> Фамилия </th>
+		<th> Редактирование </th>
+	</tr>
+<% @users.each do |user| %>
+	<tr >
+		<td> <%= link_to user[:id], user_path(user[:id]) %> </td>
+		<td> <%= user[:name] %> </td>
+		<td> <%= user[:lastname] %> </td>
+		<td> <%= link_to "Редактировать", edit_user_path(user[:id]) %> </td>
+	</tr>
+<% end %>	
+</table>
+<br>
+<%= will_paginate @users %>
+
+<p><%= link_to "Создать нового пользователя", new_user_path %> </p>
