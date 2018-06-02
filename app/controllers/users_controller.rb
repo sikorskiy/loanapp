@@ -17,6 +17,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update_attributes(name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email])
+    if @user.errors.empty?
+      redirect_to @user
+    else
+      render "edit"
+    end
   end
 
   def create
