@@ -1,0 +1,32 @@
+$navbar-default-bg: #33ccff;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+table
+{
+  border-spacing: 2px;
+  width: 50%;
+  border-collapse: collapse;
+}
+
+td,th
+{
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 2px;
+}
+
+tr:nth-child(even)
+{
+  background-color: #dddddd;
+}
+
+.form_info {
+  width: 500px;
+  text-align: right;
+}
+
+body {
+  background: #ffffff;
+}
