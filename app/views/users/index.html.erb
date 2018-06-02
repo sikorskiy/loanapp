@@ -1,12 +1,15 @@
 <h1>Список пользователей</h1>
 <p>
-<%= link_to "Сортировать по имени", users_path(sorting: "name DESC") %>
+
 </p>
 
 <table>
 	<tr >
 		<th> ID </th>
-		<th> Имя ↓</th>
+		<th> Имя 
+			<%= link_to "↓", users_path(sorting: "name") %>
+			<%= link_to "↑", users_path(sorting: "name DESC") %>
+		</th>
 		<th> Фамилия </th>
 		<th> Редактирование </th>
 	</tr>
