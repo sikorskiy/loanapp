@@ -16,6 +16,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+  end
+
   def create
     @user = User.create(name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email])
     redirect_to user_path(@user)
