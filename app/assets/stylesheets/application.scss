@@ -1,0 +1,45 @@
+$navbar-default-bg: #22bbee;
+
+#logo {
+  float: left;
+  font-weight: bold;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+table
+{
+  border-spacing: 2px;
+  width: 50%;
+  border-collapse: collapse;
+}
+
+td,th
+{
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 2px;
+}
+
+tr:nth-child(even)
+{
+  background-color: #dddddd;
+}
+
+.form_info {
+  width: 500px;
+  text-align: right;
+}
+
+body {
+  background: #ffffff;
+}
+
+.center {
+  text-align: center;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
