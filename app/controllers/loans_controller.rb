@@ -29,8 +29,13 @@ class LoansController < ApplicationController
   end
 
   def create
-    @loan = Loan.create(giver: params[:loan][:giver], sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest])
-    redirect_to loan_path(@loan)
+   @user = User.find(1)
+    @loan = @user.loans.create(user_id: @user.id, giver: params[:loan][:giver], sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest])
+    if @loan.errors.empty?
+      redirect_to @loan
+    else
+      render 'new'
+    end
   end
 
 end

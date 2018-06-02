@@ -1,8 +1,5 @@
-<h1>Список пользователей</h1>
+<h1>Список расписок</h1>
 
-<p>
-<%= link_to "Сортировать по имени", users_path(sorting: "name") %>
-</p>
 <table>
 	<tr >
 		<th> ID </th>
@@ -27,3 +24,4 @@
 <%= will_paginate @loans %>
 
 <p><%= link_to "Создать новый займ", new_loan_path %> </p>
+<p><%= link_to "Список пользователей", users_path %> </p>
