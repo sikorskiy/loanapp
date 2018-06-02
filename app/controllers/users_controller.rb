@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.paginate(per_page: 5, page: params[:page]) 
+    @users = User.order(params[:sorting].nil? ? "id" : params[:sorting]).paginate(per_page: 5, page: params[:page]) 
   end
 
   def new
     @user = User.new
+  end
+
+  def home
   end
 
   def edit
