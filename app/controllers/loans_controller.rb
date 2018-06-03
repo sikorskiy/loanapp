@@ -14,7 +14,7 @@ class LoansController < ApplicationController
 
   def update
     @loan = Loan.find(params[:id])
-    @loan.update_attributes(sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest])
+    @loan.update_attributes(sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest], user_id: params[:loan][:user_id])
     redirect_to loan_path(@loan)
   end
 
@@ -29,7 +29,7 @@ class LoansController < ApplicationController
   end
 
   def create
-    @loan = Loan.create(sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest])
+    @loan = Loan.create(sum: params[:loan][:sum], term: params[:loan][:term], interest: params[:loan][:interest], user_id: params[:loan][:user_id])
     redirect_to loan_path(@loan)
   end
 
