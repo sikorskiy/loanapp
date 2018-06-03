@@ -15,7 +15,7 @@
 <% @loans.each do |loan| %>
 	<tr >
 		<td> <%= link_to loan[:id], loan_path(loan[:id]) %> </td>
-		<td> <%= loan[:giver] %> </td>
+		<td> <%= loan[:user_id] %> </td>
 		<td> <%= loan[:sum] %> </td>
 		<td> <%= loan[:term] %> </td>
 		<td> <%= loan[:interest] %> </td>
