@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180526181638) do
+ActiveRecord::Schema.define(version: 20180602192527) do
 
   create_table "loans", force: :cascade do |t|
-    t.string "giver"
     t.float "sum"
     t.integer "term"
     t.float "interest"
