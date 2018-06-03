@@ -2,6 +2,8 @@
 <p>e-mail: <%= " " + @user.email %></p>
 <p>Created at: <%= " " + @user.created_at.to_s %> </p>
 <br>
-<%= link_to "Удалить пользователя", user_path(@user), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Создать расписку", new_loan_path(@user) %>
+<br>
+<%= link_to "Удалить пользователя", user_path(@user), method: :delete %>
 <br>
 <%= link_to "Список всех пользователей", users_path %>
