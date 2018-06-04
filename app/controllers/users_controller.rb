@@ -31,7 +31,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email])
-    redirect_to user_path(@user)
+    if @user.errors.empty?
+      redirect_to user_path(@user)
+    else
+      render "new"
+    end
   end
 
   def update
