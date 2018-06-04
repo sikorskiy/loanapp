@@ -1,8 +1,6 @@
 <h2>Редактирование пользователя</h2>
-<%= form_for @loan do |f| %>
-<%= render partial: "form", locals: {f: f} %>
-<p class="form_info">
-<%= f.submit "Сохранить займ" %>
-</p>
+<%= render partial: "layouts/errors", locals: {item: @loan} %>
+<%= form_for @loan, html: {class: "form-horizontal"}  do |f| %>
+<%= render partial: "form", locals: {f: f, button: "Сохранить займ"} %>
 <% end %>
  
