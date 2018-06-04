@@ -1,5 +1,6 @@
 <h2>Редактирование пользователя</h2>
-<%= form_for @user do |f| %>
-<%= render partial: "form", locals: {item: @user, button: "Сохранить пользователя"} %>
+<%= render partial: "layouts/errors", locals: {item: @user} %>
+<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+  <%= render partial: "form", locals: {f: f, button: "Сохранить пользователя"} %>
 <% end %>
  

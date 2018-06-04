@@ -15,7 +15,12 @@ class LoansController < ApplicationController
   def update
     @loan = Loan.find(params[:id])
     @loan.update_attributes(user_params)
-    redirect_to loan_path(@loan)
+    if @loan.errors.any?
+      render "edit"
+    else
+      redirect_to loan_path(@loan)
+    end
+
   end
 
   def destroy
