@@ -1,13 +1,7 @@
 <h2>Создание новой расписки</h2>
 <%= render partial: "layouts/errors", locals: {item: @loan} %>
 
-<%= form_for @loan do |f| %>
-<%= render partial: "form", locals: {f: f} %>
-<p class = "form_info"> Заемщик: 
-<%= f.collection_select :user_id, User.all.order("lastname"), :id, :lastname %>
-</p>
-<p class="form_info">
-<%= f.submit "Создать новый займ", class: "btn btn-info" %>
-</p>
+<%= form_for @loan, html: {class: "form-horizontal"} do |f| %>
+<%= render partial: "form", locals: {f: f, button: "Создать новый займ"} %>
 <% end %>
  
