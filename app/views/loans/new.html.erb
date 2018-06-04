@@ -1,4 +1,6 @@
 <h2>Создание новой расписки</h2>
+<%= render partial: "layouts/errors", locals: {item: @loan} %>
+
 <%= form_for @loan do |f| %>
 <%= render partial: "form", locals: {f: f} %>
 <p class = "form_info"> Заемщик: 

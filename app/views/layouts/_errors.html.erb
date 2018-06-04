@@ -1,0 +1,10 @@
+<% if item.errors.any? %>
+  <div class="alert alert-warning alert-dismissible">
+    <a class = "close" href="#" data-dismiss="alert">&times</a>
+    <ul>
+      <% item.errors.full_messages.each do |e| %>
+        <li> <%= e %></li>
+      <%end%>
+    </ul>
+  </div>
+<% end %>

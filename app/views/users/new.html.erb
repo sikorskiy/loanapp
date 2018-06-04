@@ -1,4 +1,6 @@
 <h2>Создание нового пользователя</h2>
+<%= render partial: "layouts/errors", locals: {item: @user} %>
+
 <%= form_for @user do |f| %>
 <%= render partial: "form", locals: {f: f} %>
 <p class="form_info">

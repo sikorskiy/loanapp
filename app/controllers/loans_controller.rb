@@ -30,7 +30,12 @@ class LoansController < ApplicationController
 
   def create
     @loan = Loan.create(user_params)
-    redirect_to loan_path(@loan)
+    if @loan.errors.empty?
+      redirect_to loan_path(@loan)
+    else
+      render 'new'
+    end
+
   end
 
   private
