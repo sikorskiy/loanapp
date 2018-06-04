@@ -5,18 +5,22 @@
 <table class = "table table-striped table-bordered table-condensed table-responsive">
 	<tr >
 		<th> ID </th>
-		<th> Имя 
-			<%= link_to "↓", users_path(sorting: "name") %>
-			<%= link_to "↑", users_path(sorting: "name DESC") %>
+		<th> Пользователь
+			<%= link_to users_path(sorting: "lastname") do %>
+        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+      <% end %>
+      <%= link_to users_path(sorting: "lastname DESC") do %>
+        <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+      <% end %>
 		</th>
-		<th> Фамилия </th>
 		<th> Редактирование </th>
 	</tr>
 <% @users.each do |user| %>
 	<tr >
 		<td> <%= link_to user[:id], user_path(user[:id]) %> </td>
-		<td> <%= user[:name] %> </td>
-		<td> <%= user[:lastname] %> </td>
+		<td> <%= user[:name] + " " + user[:lastname] %>
+      <span class="badge"><%= user.loans.length %></span>
+    </td>
 		<td> <%= link_to "Редактировать", edit_user_path(user[:id]) %> </td>
 <% end %>	
 </table>
