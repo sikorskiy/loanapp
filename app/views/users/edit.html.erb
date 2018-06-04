@@ -1,8 +1,5 @@
 <h2>Редактирование пользователя</h2>
 <%= form_for @user do |f| %>
-<%= render partial: "form", locals: {f: f} %>
-<p class="form_info">
-<%= f.submit "Сохранить пользователя" %>
-</p>
+<%= render partial: "form", locals: {item: @user, button: "Сохранить пользователя"} %>
 <% end %>
  
