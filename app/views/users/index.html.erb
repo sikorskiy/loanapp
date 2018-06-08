@@ -18,7 +18,7 @@
 <% @users.each do |user| %>
 	<tr >
 		<td> <%= link_to user[:id], user_path(user[:id]) %> </td>
-		<td> <%= user[:name] + " " + user[:lastname] %>
+		<td> <%= "#{user[:email]}  #{user[:name]}  #{user[:lastname]}" %>
       <span class="badge"><%= user.loans.length %></span>
     </td>
 		<td> <%= link_to "Редактировать", edit_user_path(user[:id]) %> </td>
@@ -27,6 +27,4 @@
 <br>
 <%= will_paginate @users %>
 
-
-<p><%= link_to "Создать нового пользователя", new_user_path %> </p>
 <p><%= link_to "Список расписок", loans_path %> </p>

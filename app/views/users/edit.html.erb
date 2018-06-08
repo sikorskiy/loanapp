@@ -1,4 +1,4 @@
-<h2>Редактирование пользователя</h2>
+<h2>Редактирование пользователя <%= @user.email %></h2>
 <%= render partial: "layouts/errors", locals: {item: @user} %>
 <%= form_for @user, html: {class: "form-horizontal"} do |f| %>
   <%= render partial: "form", locals: {f: f, button: "Сохранить пользователя"} %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def index
     @users = User.order(params[:sorting].nil? ? "id" : params[:sorting]).paginate(per_page: 5, page: params[:page]) 
   end
@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   end
 
   def home
+    if user_signed_in?
+      @user = current_user
+    end
   end
 
   def edit
@@ -21,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email])
+    @user.update_attributes(name: params[:user][:name], lastname: params[:user][:lastname])
     if @user.errors.empty?
       redirect_to @user
     else
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email])
+    @user = User.create(name: params[:user][:name], lastname: params[:user][:lastname])
     if @user.errors.empty?
       redirect_to user_path(@user)
     else
@@ -39,6 +42,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if params[:id] = "sign_out"
+      sign_out current_user
+      return
+    end
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
