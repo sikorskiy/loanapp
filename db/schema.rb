@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602192527) do
+ActiveRecord::Schema.define(version: 20180609130744) do
 
   create_table "loans", force: :cascade do |t|
     t.float "sum"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180602192527) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end
