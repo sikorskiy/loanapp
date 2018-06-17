@@ -33,13 +33,39 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+
+            <% if logged_in? %>
+              <%= link_to (current_user.name + " " + current_user.lastname), class: "dropdown-toggle",
+                          "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" do %>
+                Владимир Путин
+                <span class="caret"></span>
+              <% end %>
+            <% else %>
+              <%= link_to "Log in", login_path %>
+            <% end %>
+
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li>
+              <a href="#">
+                <% if logged_in? %>
+                  <%= link_to "Профиль", user_path(current_user) %>
+                <% else %>
+                  Profile
+                <% end %>
+              </a>
+            </li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li>
+              <a href="#">
+                <% if logged_in? %>
+                  <%= link_to "Log out", logout_path, method: :delete %>
+                <% else %>
+                  Separated link
+                <% end %>
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
