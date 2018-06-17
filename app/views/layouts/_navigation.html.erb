@@ -33,14 +33,17 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
             <% if logged_in? %>
-              <%= current_user.name + " " + current_user.lastname %>
+              <%= link_to (current_user.name + " " + current_user.lastname), class: "dropdown-toggle",
+                          "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" do %>
+                Владимир Путин
+                <span class="caret"></span>
+              <% end %>
             <% else %>
               <%= link_to "Log in", login_path %>
             <% end %>
-            <span class="caret"></span>
-          </a>
+
           <ul class="dropdown-menu">
             <li>
               <a href="#">
