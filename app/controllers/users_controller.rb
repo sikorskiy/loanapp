@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    LoanMailer.sample_email(@user).deliver
   end
 
   def update
